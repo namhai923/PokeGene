@@ -1,0 +1,13 @@
+.banner {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+
+  margin-bottom: 1rem;
+
+  background-image: url(../../assets/images/banner.jpg);
+  background-position: center;
+  background-size: cover;
+}
