@@ -2,6 +2,7 @@ import Banner from "components/Banner";
 import Header from "components/Header";
 import Loader from "components/Loader";
 import PageNotFound from "components/PageNotFound";
+import SignIn from "features/auth/pages/SignIn";
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -20,6 +21,7 @@ function App() {
             <Switch>
               <Redirect exact from="/" to="/collection" />
               <Route path="/collection" component={Collection} />
+              <Route path="/signin" component={SignIn} />
               <Route component={PageNotFound} />
             </Switch>
           </div>

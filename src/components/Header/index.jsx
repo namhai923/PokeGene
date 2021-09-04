@@ -18,9 +18,9 @@ function Header(props) {
           </Col>
 
           <Col xs="auto">
-            <Link exact to="/collection/add">
+            <Link exact to="/signin">
               <Button className="header__button" type="button" color="primary">
-                Add Pokemon
+                Sign in
               </Button>
             </Link>
           </Col>

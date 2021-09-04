@@ -27,7 +27,12 @@ function CollectionStorage(props) {
     <Container className="grid">
       {pokeCollection.map((item) => {
         return (
-          <Item {...item} handleRemove={handleRemove} handleEdit={handleEdit} />
+          <Item
+            key={item.pokemon.name}
+            {...item}
+            handleRemove={handleRemove}
+            handleEdit={handleEdit}
+          />
         );
       })}
     </Container>
