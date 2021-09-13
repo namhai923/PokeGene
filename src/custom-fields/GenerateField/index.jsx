@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { FormFeedback, FormGroup } from "reactstrap";
 import Generate from "./Generate";
-import { getDescription, getImage } from "./pokemonData";
-import randomPokemon from "./randomPokemon";
+import geneAPI from "api/geneAPI";
 
 GenerateField.propTypes = {
   field: PropTypes.object.isRequired,
@@ -56,13 +55,19 @@ function GenerateField(props) {
       } else {
         setGenerateMessage("");
         setGenerating(true);
-        let myPokemon = await randomPokemon(selectedTypes);
-        if (!myPokemon) {
+        selectedTypes = selectedTypes.map((type) => type.value);
+        let params = {
+          types: selectedTypes,
+        };
+        let myPokemon = await geneAPI.genePokemon(params);
+        if (!myPokemon.name) {
           setGenerateMessage("There is no Pokemon available");
         } else {
-          setImage(await getImage(myPokemon));
-          setDescription(await getDescription(myPokemon));
-          setTitle(myPokemon.charAt(0).toUpperCase() + myPokemon.slice(1));
+          setImage(myPokemon.image);
+          setDescription(myPokemon.description);
+          setTitle(
+            myPokemon.name.charAt(0).toUpperCase() + myPokemon.name.slice(1)
+          );
         }
         setGenerating(false);
       }

@@ -2,7 +2,7 @@ import axios from "axios";
 import queryString from "query-string";
 
 let axiosClient = axios.create({
-  baseURL: process.env.REACT_APP_POKEAPI,
+  baseURL: process.env.REACT_APP_GENEAPI,
   headers: {
     "content-type": "application/json",
   },
